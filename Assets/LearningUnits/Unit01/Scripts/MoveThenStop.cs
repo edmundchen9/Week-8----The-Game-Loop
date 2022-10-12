@@ -19,14 +19,15 @@ public class MoveThenStop : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    //edmund's comments: By placing return in the if statement, we have it so that it will transform.Translate everytime the distance is <.1f, so it will move.
     void Update()
     {
         transform.Translate(moveDirection);
         
         if (Vector3.Distance(transform.position, destination) < .1f)
         {
+            return;
         }
-
-        return;
     }
 }

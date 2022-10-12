@@ -19,10 +19,15 @@ public class ThisAndThat : MonoBehaviour
     {
         
     }
-
+    // Edmund comments; We need to have areBothCubesDetected to be true
     // Update is called once per frame
     void Update()
     {
+        if (isRedCubeDetected && isBlueCubeDeteted)
+        {
+            areBothCubesDetected = true;
+        }
+
         if (areBothCubesDetected)
         {
             door.GetComponent<MoveToLocation>().enabled = true;
