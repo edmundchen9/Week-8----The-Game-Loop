@@ -6,7 +6,7 @@ public class ThisAndThat : MonoBehaviour
 {
     [SerializeField] GameObject blueCube, redCube, door;
 
-    bool isRedCubeDetected, isBlueCubeDeteced, areBothCubesDetected;
+    bool isRedCubeDetected, isBlueCubeDetected, areBothCubesDetected;
 
     // DIRECTIONS: This script is missing a crucial "if statement" in the Update() method.
     // Nothing in Update() needs to change, but something must be added...
@@ -19,11 +19,11 @@ public class ThisAndThat : MonoBehaviour
     {
         
     }
-    // Edmund comments; We need to have areBothCubesDetected to be true
+    // Edmund comments; We need to have areBothCubesDetected to be true, if they are then they will open the door
     // Update is called once per frame
     void Update()
     {
-        if (isRedCubeDetected && isBlueCubeDeteted)
+        if (isRedCubeDetected && isBlueCubeDetected)
         {
             areBothCubesDetected = true;
         }
@@ -34,16 +34,17 @@ public class ThisAndThat : MonoBehaviour
         }
     }
 
+    // If the objects are named what they are in Unity, and they enter the TriggerZone, then their detected booleans will be set to true. This then leads to the update methods 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject something something)
-        //{
-        //    isBlueCubeDeteced = true;
-        //}
+        if (other.gameObject.name == "BlueCube")
+        {
+            isBlueCubeDetected = true;
+        }
 
-        //if (other.gameObject something something)
-        //{
-        //    isRedCubeDetected = true;
-        //}
+        if (other.gameObject.name == "RedCube")
+        {
+           isRedCubeDetected = true;
+        }
     }
 }
